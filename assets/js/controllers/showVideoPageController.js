@@ -58,6 +58,10 @@ angular.module('brushfire').controller('showVideoPageController', ['$scope', '$h
       message: e.message,
       gravatarURL: e.gravatarURL
     });
+
+    // Because io.socket.on() is not an angular thing, we have to call $scope.$apply() in
+    // this event handler in order for our changes to the scope to actually take effect.
+    $scope.$apply();
   });
 
 /* 
